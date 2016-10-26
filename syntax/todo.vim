@@ -27,7 +27,7 @@ endif
 
 " Regions
     
-    syn region todoUnderline start='_' end='_' keepend
+    syn region todoUnderline start='`' end='`' keepend
     syn region todoExample start='^\(\s\+\)\?Example:' end='^\(\s\+\)\?End\(Ex\|\(\s\+\)\?Example\)' keepend
 
 " Create color context.  (:help group-name to see legend)
