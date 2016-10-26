@@ -27,7 +27,8 @@ endif
 
 " Regions
     
-    syn region todoUnderline start='`' end='`' keepend
+    syn match todoHideMe        /`/
+    syn region todoUnderline start='`' end='`' keepend contains=todoHideMe
     syn region todoExample start='^\(\s\+\)\?Example:' end='^\(\s\+\)\?End\(Ex\|\(\s\+\)\?Example\)' keepend
 
 " Create color context.  (:help group-name to see legend)
@@ -42,6 +43,7 @@ endif
     highlight link todoImportant    Special
 "   highlight link todoCommentTodo  Todo
     highlight link todoUnderline    Underlined
+    highlight link todoHideMe       Ignore
     highlight link todoExample      Normal
 
 
