@@ -29,7 +29,7 @@ endif
     
     syn match todoHideMe        /`/
     syn region todoUnderline start='`' end='`' keepend contains=todoHideMe
-    syn region todoExample start='^\(\s\+\)\?Ex.\{-}:' end='^\(\s\+\)\?End\(Ex\|\(\s\+\)\?Example\)' keepend
+    syn region todoExample start='^\(\s\+\)\?Ex.\{-}:$' end='^\(\s\+\)\?End\(Ex\|\(\s\+\)\?Example\)\(:\)\?$' keepend
 
 " Create color context.  (:help group-name to see legend)
 
