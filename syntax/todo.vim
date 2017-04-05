@@ -12,14 +12,14 @@ endif
 
 " Create regex matches for types of lines.
 
-    syn match todoTitle         /^\(.*\|\):\(\s\|\)\+$/  contains=todoUnderline
-    syn match todoTodo          /^\(\s\|\)\+\(>\|<\).*$/ contains=todoUnderline
-    syn match todoDone          /^\(\s\|\)\++.*$/        contains=todoUnderline
-    syn match todoWait          /^\(\s\|\)\+\.\.\..*$/   contains=todoUnderline
-    syn match todoInformation   /^\(\s\|\)\+\*.*$/       contains=todoUnderline
-    syn match todoCanceled      /^\(\s\|\)\+-.*$/        contains=todoUnderline
-    syn match todoQuestion      /^\(\s\|\)\+?.*$/        contains=todoUnderline
-    syn match todoImportant     /^\(\s\|\)\+!.*$/        contains=todoUnderline
+    syn match todoTitle         /^\(.*\|\):\(\s\|\)\+$/ contains=todoUnderline
+    syn match todoTodo          /^\(\s\|\)\+>.*$/      contains=todoUnderline
+    syn match todoDone          /^\(\s\|\)\++.*$/       contains=todoUnderline
+    syn match todoWait          /^\(\s\|\)\+\.\.\..*$/  contains=todoUnderline
+    syn match todoInformation   /^\(\s\|\)\+\*.*$/      contains=todoUnderline
+    syn match todoCanceled      /^\(\s\|\)\+-.*$/       contains=todoUnderline
+    syn match todoQuestion      /^\(\s\|\)\+?.*$/       contains=todoUnderline
+    syn match todoImportant     /^\(\s\|\)\+!.*$/       contains=todoUnderline
 
 " Create keywords
 
