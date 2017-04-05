@@ -13,7 +13,7 @@ endif
 " Create regex matches for types of lines.
 
     syn match todoTitle         /^\(.*\|\):\(\s\|\)\+$/  contains=todoUnderline
-    syn match todoTodo          /^\(\s\|\)\+\(>\|\~\).*$/        contains=todoUnderline
+    syn match todoTodo          /^\(\s\|\)\+\(>\|<\).*$/ contains=todoUnderline
     syn match todoDone          /^\(\s\|\)\++.*$/        contains=todoUnderline
     syn match todoWait          /^\(\s\|\)\+\.\.\..*$/   contains=todoUnderline
     syn match todoInformation   /^\(\s\|\)\+\*.*$/       contains=todoUnderline
