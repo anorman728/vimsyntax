@@ -64,5 +64,10 @@ endif
     highlight link todoHideMe       Ignore
     highlight link todoExample      Normal
 
+" Include PHP
+
+    syntax include @PHP syntax/php.vim
+    syntax region phpSnip matchgroup=Snip start="@begin=php@" end="@end=php@" contains=@PHP
+    hi link Snip SpecialComment
 
 let b:current_syntax = "todo"
