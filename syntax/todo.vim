@@ -66,6 +66,7 @@ endif
 
 " Include PHP
 
+    " Really weird thing to note:  If you don't close the ?>, it won't end the syntax.
     syntax include @PHP syntax/php.vim
     syntax region phpSnip matchgroup=Snip start="@begin=php@" end="@end=php@" contains=@PHP
     hi link Snip SpecialComment
