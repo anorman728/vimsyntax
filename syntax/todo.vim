@@ -94,5 +94,7 @@ endif
     " Include PHP
          " Really weird thing to note:  If you don't close the ?>, it won't end the syntax.
         call TextEnableCodeSnip('php', '@begin=php@', '@end=php@')
+    " Include JS
+        call TextEnableCodeSnip('javascript', '@begin=js@', '@end=js@')
 
 let b:current_syntax = "todo"
