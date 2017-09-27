@@ -64,11 +64,35 @@ endif
     highlight link todoHideMe       Ignore
     highlight link todoExample      Normal
 
-" Include PHP
+" Subregions, i.e., putting code examples into a todo file.
+    " This function was yanked (with slight modification) from http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+    function! TextEnableCodeSnip(filetype,start,end) abort
+      let ft=toupper(a:filetype)
+      let group='textGroup'.ft
+      if exists('b:current_syntax')
+        let s:current_syntax=b:current_syntax
+        " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+        " do nothing if b:current_syntax is defined.
+        unlet b:current_syntax
+      endif
+      execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+      try
+        execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+      catch
+      endtry
+      if exists('s:current_syntax')
+        let b:current_syntax=s:current_syntax
+      else
+        unlet b:current_syntax
+      endif
+      execute 'syntax region textSnip'.ft.' matchgroup=SpecialComment start="'.a:start.'" end="'.a:end.'" contains=@'.group
+    endfunction
 
-    " Really weird thing to note:  If you don't close the ?>, it won't end the syntax.
-    syntax include @PHP syntax/php.vim
-    syntax region phpSnip matchgroup=Snip start="@begin=php@" end="@end=php@" contains=@PHP
-    hi link Snip SpecialComment
+
+    " Include sh
+        call TextEnableCodeSnip('sh','@begin=sh@','@end=sh@')
+    " Include PHP
+         " Really weird thing to note:  If you don't close the ?>, it won't end the syntax.
+        call TextEnableCodeSnip('php', '@begin=php@', '@end=php@')
 
 let b:current_syntax = "todo"
