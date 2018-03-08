@@ -82,8 +82,8 @@ endif
       endtry
       if exists('s:current_syntax')
         let b:current_syntax=s:current_syntax
-      else
-        unlet b:current_syntax
+      "else
+      "  unlet b:current_syntax
       endif
       execute 'syntax region textSnip'.ft.' matchgroup=SpecialComment start="'.a:start.'" end="'.a:end.'" contains=@'.group
     endfunction
@@ -96,5 +96,7 @@ endif
         call TextEnableCodeSnip('php', '@begin=php@', '@end=php@')
     " Include JS
         call TextEnableCodeSnip('javascript', '@begin=js@', '@end=js@')
+    " Include plaintext
+        call TextEnableCodeSnip('nosyntax', '@begin=none@', '@end=none@')
 
 let b:current_syntax = "todo"
