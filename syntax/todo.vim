@@ -25,24 +25,6 @@ endif
 
 "   syn keyword todoCommentTodo TODO
 
-" Specially-colored regions
-
-    " Will probably update this as-needed.
-    
-    " Can't get this to work.  Commenting out for now.
-
-"   " PHP
-"       syntax include @Php syntax/php.vim
-"       syntax region phpRegion matchgroup=Delimiter start="\[php\]" end="\[/php\]" contains=@php keepend
-"
-"   " SQL
-"       syntax include @Sql syntax/sql.vim
-"       syntax region sqlRegion matchgroup=Delimiter start="\[sql\]" end="\[/sql\]" contains=@Sql keepend
-"   
-"   " JS
-"       syntax include @Javascript syntax/javascript.vim
-"       syntax region myJavascript start="\[js\]" end="\[/js\]" keepend contains=@Javascript
-
 " Regions
     
     syn match todoHideMe        /`/
@@ -55,7 +37,7 @@ endif
     highlight link todoTodo         Type
     highlight link todoDone         Constant
     highlight link todoWait         PreProc
-    highlight link todoInformation  Identifier
+    highlight link todoInformation  Comment
     highlight link todoCanceled     Error
     highlight link todoQuestion     Special
     highlight link todoImportant    Special
@@ -75,7 +57,6 @@ endif
         " do nothing if b:current_syntax is defined.
         unlet b:current_syntax
       endif
-      execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
       try
         execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
       catch
