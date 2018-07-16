@@ -47,26 +47,22 @@ endif
     highlight link todoExample      Normal
 
 " Subregions, i.e., putting code examples into a todo file.
-    " This function was yanked (with slight modification) from http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+    " This function was yanked (with slight modification) from
+    " http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+    " If strange behavior is noticed, it probably means that a syntax was called
+    " that doesn't exist!  Haven't been able to fix this so far.
     function! TextEnableCodeSnip(filetype,start,end) abort
-      let ft=toupper(a:filetype)
-      let group='textGroup'.ft
-      if exists('b:current_syntax')
-        let s:current_syntax=b:current_syntax
-        " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
-        " do nothing if b:current_syntax is defined.
-        unlet b:current_syntax
-      endif
-      try
-        execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
-      catch
-      endtry
-      if exists('s:current_syntax')
-        let b:current_syntax=s:current_syntax
-      "else
-      "  unlet b:current_syntax
-      endif
-      execute 'syntax region textSnip'.ft.' matchgroup=SpecialComment start="'.a:start.'" end="'.a:end.'" contains=@'.group
+        let ft=toupper(a:filetype)
+        let group='textGroup'.ft
+        if exists('b:current_syntax')
+            let s:current_syntax=b:current_syntax
+            " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+            " do nothing if b:current_syntax is defined.
+            unlet b:current_syntax
+        endif
+        let fileName = 'syntax/'.a:filetype.'.vim'
+        execute 'syntax include @'.group.' '.fileName
+        execute 'syntax region textSnip'.ft.' matchgroup=SpecialComment start="'.a:start.'" end="'.a:end.'" contains=@'.group
     endfunction
 
 
@@ -77,7 +73,13 @@ endif
         call TextEnableCodeSnip('php', '@begin=php@', '@end=php@')
     " Include JS
         call TextEnableCodeSnip('javascript', '@begin=js@', '@end=js@')
-    " Include plaintext
-        call TextEnableCodeSnip('nosyntax', '@begin=none@', '@end=none@')
+    " Include xml.
+        call TextEnableCodeSnip('xml', '@begin=xml@', '@end=xml@')
+    " Include JSON.
+        call TextEnableCodeSnip('json', '@begin=json@', '@end=json@')
+
+    " Include Plaintext (different from others because there's no matching file.)
+        syntax region todoPlaintext matchgroup=SpecialComment start="@begin=plain@" end="@end=plain@"
+        highlight link todoPlaintext Normal
 
 let b:current_syntax = "todo"
