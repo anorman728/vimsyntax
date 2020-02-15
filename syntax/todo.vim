@@ -77,6 +77,8 @@ endif
         call TextEnableCodeSnip('xml', '@begin=xml@', '@end=xml@')
     " Include JSON.
         call TextEnableCodeSnip('json', '@begin=json@', '@end=json@')
+    " Include SQL
+        call TextEnableCodeSnip('sql', '@begin=sql@', '@end=sql')
 
     " Include Plaintext (different from others because there's no matching file.)
         syntax region todoPlaintext matchgroup=SpecialComment start="@begin=plain@" end="@end=plain@"
