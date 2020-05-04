@@ -17,6 +17,7 @@ endif
     syn match todoDone          /^\(\s\|\)\++.*$/       contains=todoUnderline
     syn match todoWait          /^\(\s\|\)\+\.\.\..*$/  contains=todoUnderline
     syn match todoInformation   /^\(\s\|\)\+\*.*$/      contains=todoUnderline
+    syn match todoInformation   /^\(\s\|\)\+\(\d\+\|\d\)\..*$/      contains=todoUnderline
     syn match todoCanceled      /^\(\s\|\)\+-.*$/       contains=todoUnderline
     syn match todoQuestion      /^\(\s\|\)\+?.*$/       contains=todoUnderline
     syn match todoImportant     /^\(\s\|\)\+!.*$/       contains=todoUnderline
