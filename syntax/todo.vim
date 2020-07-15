@@ -12,15 +12,15 @@ endif
 
 " Create regex matches for types of lines.
 
-    syn match todoTitle         /^\(.*\|\):\(\s\|\)\+$/ contains=todoUnderline
-    syn match todoTodo          /^\(\s\|\)\+>.*$/       contains=todoUnderline
-    syn match todoDone          /^\(\s\|\)\++.*$/       contains=todoUnderline
-    syn match todoWait          /^\(\s\|\)\+\.\.\..*$/  contains=todoUnderline
-    syn match todoInformation   /^\(\s\|\)\+\*.*$/      contains=todoUnderline
-    syn match todoInformation   /^\(\s\|\)\+\(\d\+\|\d\)\..*$/      contains=todoUnderline
-    syn match todoCanceled      /^\(\s\|\)\+-.*$/       contains=todoUnderline
-    syn match todoQuestion      /^\(\s\|\)\+?.*$/       contains=todoUnderline
-    syn match todoImportant     /^\(\s\|\)\+!.*$/       contains=todoUnderline
+    syn match todoTitle         /^\(.*\|\):\(\s\|\)\+$/ contains=todoInlineCode
+    syn match todoTodo          /^\(\s\|\)\+>.*$/       contains=todoInlineCode
+    syn match todoDone          /^\(\s\|\)\++.*$/       contains=todoInlineCode
+    syn match todoWait          /^\(\s\|\)\+\.\.\..*$/  contains=todoInlineCode
+    syn match todoInformation   /^\(\s\|\)\+\*.*$/      contains=todoInlineCode
+    syn match todoInformation   /^\(\s\|\)\+\(\d\+\|\d\)\..*$/      contains=todoInlineCode
+    syn match todoCanceled      /^\(\s\|\)\+-.*$/       contains=todoInlineCode
+    syn match todoQuestion      /^\(\s\|\)\+?.*$/       contains=todoInlineCode
+    syn match todoImportant     /^\(\s\|\)\+!.*$/       contains=todoInlineCode
 
 " Create keywords
 
@@ -30,7 +30,7 @@ endif
     
     " Commenting out all of below.  I never use them.
     "syn match todoHideMe        /`/
-    "syn region todoUnderline start='`' end='`' keepend contains=todoHideMe
+    syn region todoInlineCode start='`' end='`' keepend contains=todoHideMe
     "syn region todoExample start='^\(\s\+\)\?\(Ex\|Example\):$' end='^\(\s\+\)\?End\(Ex\|\(\s\+\)\?Example\)' keepend
 
 " Create color context.  (:help group-name to see legend)
@@ -44,7 +44,7 @@ endif
     highlight link todoQuestion     Special
     highlight link todoImportant    Special
 "   highlight link todoCommentTodo  Todo
-"    highlight link todoUnderline    Underlined
+    highlight link todoInlineCode    Normal
 "    highlight link todoHideMe       Ignore
 "    highlight link todoExample      Normal
 
