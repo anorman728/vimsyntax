@@ -7,7 +7,7 @@ syn match highlightedLine /^.*\/\/;;$/ containedin=ALL
 hi highlightedLine ctermbg=Blue
 
 " Workaround-- Don't know why, but Vim has been changing the colors of variables to light blue in PHP.
-hi phpIdentifier ctermfg=Brown
+"hi phpIdentifier ctermfg=Brown
 
 " Highlight debug code marker in red.
 syn match debugCode /\/\/dmz\(\d\|\d\+\)$/ containedin=ALL
