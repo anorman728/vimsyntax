@@ -9,3 +9,4 @@ hi highlightedLine ctermbg=Blue
 " Highlight debug code marker in red.
 syn match debugCode /\/\/dmz\(\d\|\d\+\)$/ containedin=ALL
 hi debugCode ctermbg=Red
+
