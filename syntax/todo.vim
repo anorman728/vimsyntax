@@ -85,6 +85,8 @@ endif
         call TextEnableCodeSnip('cpp', '@begin=cpp@', '@end=cpp@')
     " Include C#
         call TextEnableCodeSnip('cs', '@begin=cs@', '@end=cs@')
+    " Include Dart.
+        call TextEnableCodeSnip('dart', '@begin=dart', '@end=dart@')
 
     " Include Plaintext (different from others because there's no matching file.)
         syntax region todoPlaintext matchgroup=SpecialComment start="@begin=plain@" end="@end=plain@"
